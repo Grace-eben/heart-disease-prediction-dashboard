@@ -69,6 +69,44 @@ export const AddPatientForm = () => {
       <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-password" type="password" />
       
     </div>
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0 mt-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+      Thalach
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" />
+    </div>
+    <div class="w-full md:w-1/2 px-3">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3" for="grid-last-name">
+     Exang
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" />
+    </div>
+    <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0 mt-5">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+      Old Peak
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="text" />
+    </div>
+    <div class="w-full md:w-1/2 px-3 mt-2">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3" for="grid-last-name">
+    Slope
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" />
+    </div>
+    <div class="w-full md:w-1/2 px-3 mt-2">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3" for="grid-last-name">
+    Ca
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" />
+    </div>
+    <div class="w-full md:w-1/2 px-3 mt-2">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 mt-3" for="grid-last-name">
+     Thai
+      </label>
+      <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" />
+    </div>
+    
+   
     <button type="submit" class=" ml-2  mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
   Submit
 </button>

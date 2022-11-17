@@ -6,6 +6,7 @@ import { Register } from './pages/Register';
 import { AllPatientHistory } from './pages/AllPatientHistory';
 import { AddPatient } from './pages/AddPatient';
 import { Landing } from './pages/Landing';
+import { PatientProgress } from './pages/PatientProgress';
 function App() {
   return (
     
@@ -17,7 +18,7 @@ function App() {
     <Route exact path="/register" element={<Register/>}/>
     <Route exact path="/allpatienthistory" element={<AllPatientHistory/>}/>
     <Route exact path="/addpatient" element={<AddPatient/>}/>
-    <Route exact path="/" element={<RightPart/>}/>
+    <Route exact path="/patientprogress" element={<PatientProgress/>}/>
 </Routes>
     
    
