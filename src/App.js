@@ -5,12 +5,14 @@ import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 import { AllPatientHistory } from './pages/AllPatientHistory';
 import { AddPatient } from './pages/AddPatient';
+import { Landing } from './pages/Landing';
 function App() {
   return (
     
     
 <Routes>
-    <Route exact path="/" element={<Login/>}/>
+    <Route exact path="/" element={<Landing/>}/>
+    <Route exact path="/landing" element={<Landing/>}/>
     <Route exact path="/login" element={<Login/>}/>
     <Route exact path="/register" element={<Register/>}/>
     <Route exact path="/allpatienthistory" element={<AllPatientHistory/>}/>
