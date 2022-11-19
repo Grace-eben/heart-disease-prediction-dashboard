@@ -4,9 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 export const LoginForm = () => {
 
+
+  
+	const [user,setUser]=useState()
+	const navigate=useNavigate()
+
   const submitHandler = (event) => {
 	event.preventDefault();
-	
+	navigate(user==="Patient"? "/patienthome": "/addpatient")
 
   };
   return (
@@ -34,11 +39,15 @@ export const LoginForm = () => {
                       <input
                         class="sr-only peer"
                         type="radio"
-                        value="doctor"
+                        value="Doctor"
                         name="answer"
                         id="doctor"
                         checked
-						
+						onChange={(e)=>{
+							e.preventDefault();
+							setUser(e.target.value)
+
+						}}
 					
                       />
                       <label
@@ -53,9 +62,14 @@ export const LoginForm = () => {
                       <input
                         class="sr-only peer"
                         type="radio"
-                        value="patient"
+                        value="Patient"
                         name="answer"
                         id="patient"
+						onChange={(e)=>{
+							e.preventDefault();
+							setUser(e.target.value)
+
+						}}
                       />
                       <label
                         class="flex p-2 bg-white border border-gray-300 rounded-lg cursor-pointer border-2 border-blue-500 text-blue-500 font-semibold focus:outline-none hover:bg-gray-50  peer-checked:bg-blue-500 peer-checked:text-white  peer-checked:border-transparent"
@@ -98,7 +112,7 @@ export const LoginForm = () => {
                 <div class="mb-6 text-center">
                   <button
                     class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-                    type="button"
+                    type="submit"
                   >
                     Login
                   </button>

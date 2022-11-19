@@ -1,10 +1,8 @@
 import React from 'react'
-import NavBar from '../components/navbar/NavBar'
-import Header from '../components/header/Header'
-
-import { BarChart } from '../components/charts/BarChart'
-import { Table } from '../components/tables/Table'
-import { LineChart } from '../components/charts/LineChart'
+import NavBar from '../../components/navbar/NavBar'
+import Header from '../../components/header/Header'
+import { Table } from '../../components/tables/Table'
+import { LineChart } from '../../components/charts/LineChart'
 
 export const AllPatientHistory = () => {
   return (

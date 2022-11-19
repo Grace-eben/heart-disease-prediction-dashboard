@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const SelectionForms = () => {
+ const SelectionForms = () => {
   return (
     <div>
 
@@ -76,3 +76,6 @@ export const SelectionForms = () => {
     </div>
   )
 }
+
+
+export default SelectionForms
