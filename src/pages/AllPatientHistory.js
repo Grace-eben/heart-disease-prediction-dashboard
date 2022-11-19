@@ -1,8 +1,7 @@
 import React from 'react'
 import NavBar from '../components/navbar/NavBar'
 import Header from '../components/header/Header'
-import LeftPart from '../components/leftPart/LeftPart'
-import RightPart from './RightPart'
+
 import { BarChart } from '../components/charts/BarChart'
 import { Table } from '../components/tables/Table'
 import { LineChart } from '../components/charts/LineChart'
