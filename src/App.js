@@ -14,11 +14,24 @@ function App() {
 <Routes>
     <Route exact path="/" element={<Landing/>}/>
     <Route exact path="/landing" element={<Landing/>}/>
-    <Route exact path="/login" element={<Login/>}/>
-    <Route exact path="/register" element={<Register/>}/>
+    <Route exact path="/login" element={<Login/>}>
+      {
+
+      }
+      </Route>
+    <Route exact path="/register" element={<Register/>}>
+      {
+        
+      }
+    </Route>
     <Route exact path="/allpatienthistory" element={<AllPatientHistory/>}/>
     <Route exact path="/addpatient" element={<AddPatient/>}/>
     <Route exact path="/patientprogress" element={<PatientProgress/>}/>
+    <Route exact path="/logout">
+      {
+        
+      }
+    </Route>
 </Routes>
     
    

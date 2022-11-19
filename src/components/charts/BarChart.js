@@ -3,19 +3,19 @@ import {Bar} from 'react-chartjs-2';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
 
-export const BarChart = () => {
+export const BarChart = ({labels,label,data}) => {
 
-    
+    console.log("labels ",labels)
+    console.log("data",data)
 const state = {
-    labels: ['January', 'February', 'March',
-             'April', 'May'],
+    labels:labels,
     datasets: [
       {
-        label: 'Rainfall',
+        label: '',
         backgroundColor: 'rgba(75,192,192,1)',
         borderColor: 'rgba(0,0,0,1)',
         borderWidth: 2,
-        data: [65, 59, 80, 81, 56]
+        data: data
       }
     ]
   }
