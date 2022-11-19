@@ -21,7 +21,6 @@ export const PatientHome = () => {
        <ProfileCard/>
        <AboutPatient/>
        <Card score="98%" label="is your prediction score as per your last updated data." color="#9933ff" lastUpdated="Nov 19,2200"/>
-
         </div>
       <div className='flex flex-col  mx-10'>
       

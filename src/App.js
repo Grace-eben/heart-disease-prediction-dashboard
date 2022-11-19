@@ -11,6 +11,7 @@ import { PatientHome } from './pages/Patient Dashboard/PatientHome';
 import { ViewProgress } from './pages/Patient Dashboard/ViewProgress';
 
 
+
 function App() {
   return (
     
@@ -25,7 +26,7 @@ function App() {
     <Route exact path="/patientprogress" element={<PatientProgress/>}/>
         <Route exact path="/patienthome" element={<PatientHome/>}/>
         <Route exact path="/viewprogress" element={<ViewProgress/>}/>
-        
+    
 </Routes>
     
    

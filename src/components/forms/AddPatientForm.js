@@ -1,15 +1,25 @@
 import React, { useState } from 'react'
-import { PatientProgressModal } from '../modals/PatientProgressModal'
+import { PredictionModal } from '../modals/PredictionModal';
+import 'react-responsive-modal/styles.css';
+
+
+
 
 export const AddPatientForm = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+ 
+  const [open, setOpen] = useState(false);
 
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => {
+    setOpen(false)};
+  setTimeout(() => onCloseModal(), 8000)
+   
 
   return (
 
-    <div>
+    <div className='grid grid-cols-2 col-span-10'>
      
-        <form class="w-full max-w-4xl m-5">
+        <form class="w-full max-w-xl m-5">
   <div class="flex flex-wrap -mx-3 mb-6">
     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
       <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
@@ -114,9 +124,9 @@ export const AddPatientForm = () => {
     
    
     <button  class=" ml-2  mt-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-     onClick={() => {
-      setModalOpen(true);
-    }}
+     onClick={
+     onOpenModal}
+    
     >
   Submit
 </button>
@@ -125,8 +135,10 @@ export const AddPatientForm = () => {
   </div>
 </form>
 
-{modalOpen && <PatientProgressModal setOpenModal={setModalOpen} />}
+<PredictionModal/>
+
     </div>
+
    
   )
 }
