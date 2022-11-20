@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Table = () => {
   return (
-<div class="overflow-x-auto relative shadow-md sm:rounded-lg m-10">
+<div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-8 mx-7">
     <table class="w-full text-sm text-left text-gray-700 dark:text-gray-400">
         <thead class="text-xs text-white uppercase bg-gray-700">
             <tr>
@@ -68,8 +68,8 @@ export const Table = () => {
                     3.0 lb.
                 </td>
                 <td class="flex items-center py-4 px-6 space-x-3">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                    <p class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</p>
+                    <p  class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</p>
                 </td>
             </tr>
             <tr class="bg-white border-b hover:bg-gray-50 dark:hover:bg-gray-600">
