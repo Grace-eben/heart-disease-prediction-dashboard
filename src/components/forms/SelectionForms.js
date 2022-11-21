@@ -98,3 +98,6 @@ export const SelectionForms = ({patients,listX,listY,selectedX,selectedY,setPati
     </div>
   )
 }
+
+
+export default SelectionForms

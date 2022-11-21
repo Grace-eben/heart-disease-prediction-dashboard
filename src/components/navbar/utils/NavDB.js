@@ -1,6 +1,6 @@
-import { ClipboardIcon ,LogoutIcon, PresentationChartBarIcon,ShoppingCartIcon, TemplateIcon, UserIcon } from "@heroicons/react/outline";
+import { ClipboardIcon ,LogoutIcon, PresentationChartBarIcon, TemplateIcon, } from "@heroicons/react/outline";
 
-export const navLinks = [
+export const doctorNavLinks = [
   {
     id: 0,
     title: "Add Patient",
@@ -24,6 +24,6 @@ export const navLinks = [
     id: 5,
     title: "LogOut",
     icon: <LogoutIcon className="nav-icon" />,
-    path:"/login",
+    path:"/logout",
   },
 ];

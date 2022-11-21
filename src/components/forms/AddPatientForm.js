@@ -1,14 +1,27 @@
-import React,{useEffect} from 'react'
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react'
+// import { PredictionModal } from '../modals/PredictionModal';
+// import 'react-responsive-modal/styles.css';
 import { useCookies } from 'react-cookie';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+
+
+
 export const AddPatientForm = () => {
-  const [cookies, setCookie, removeCookie] = useCookies();
+const percentage = 90;
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => {
+    setOpen(false)};
+  setTimeout(() => onCloseModal(), 8000)
+   
+  const [cookies, setCookie, removeCookie] = useCookies();   
   const [patients,setPatients] = useState([]);
   const token = cookies.token
   const user = cookies.user
   const [record,setRecord] = useState({})
 
-
+const [predictClicked,setPredictClick]= useState(false)
   function PredictHandler(){
     
     if (Object.keys(record).length == 14){
@@ -62,11 +75,13 @@ export const AddPatientForm = () => {
     //   console.log(record)
     // },[record])
   return (
-    <div>
-        <div className="w-full max-w-lg m-5" onSubmit={e=>e.preventDefault()}>
-  <div className="flex flex-wrap -mx-3 mb-6">
-    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-      <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+
+    <div className='grid grid-cols-2 col-span-10'>
+     
+        <div class="w-full max-w-xl m-5">
+  <div class="flex flex-wrap -mx-3 mb-6">
+    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+      <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
         Patient ID
       </label>
       <select onChange={(e)=>{
@@ -294,12 +309,44 @@ export const AddPatientForm = () => {
     </div>
     
    
-    <button type="submit" onClick={PredictHandler} className=" ml-2  mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <button type="submit" onClick={()=>{PredictHandler(); onOpenModal()}} className=" ml-2  mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
   Predict
 </button>
 
+
   </div>
 </div>
-    </div>
+
+<div className="w-full md:w-1/4 px-5 mt-8 content-center">
+
+<CircularProgressbar
+  value={percentage}
+  text={`${percentage}%`}
+  strokeWidth={5}
+  styles={buildStyles({
+    // Rotation of path and trail, in number of turns (0-1)
+    rotation: 0.25,
+
+    // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+    strokeLinecap: 'butt',
+
+    // Text size
+    textSize: '20px',
+
+    pathTransitionDuration: 0.5,
+
+    pathColor: `rgba(62, 152, 199, ${percentage / 100})`,
+    textColor: '#f88',
+    trailColor: '#d6d6d6',
+    backgroundColor: '#3e98c7',
+  })}
+
+  />
+</div>
+
+</div>
+
+
+   
   )
 }

@@ -16,12 +16,12 @@ export const RegisterForm = () => {
 					<div
 						class="w-full h-auto bg-gray-400 hidden lg:block lg:w-1/2 bg-cover rounded-l-lg"
 						style={{ 
-                            backgroundImage: `url("https://media.istockphoto.com/id/1439544228/photo/stethoscope-on-electrocardiogram.jpg?b=1&s=170667a&w=0&k=20&c=369_DS-jPBBIKzFmVFfejh1uB-FKtpYbHASRw9SnDso=")` 
+                            backgroundImage: `url("https://png.pngtree.com/background/20210717/original/pngtree-blue-healthcare-abstract-background-picture-image_1441119.jpg")` 
                           }}
 					></div>
 				
-					<div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-						<h3 class="pt-4 text-2xl text-center">Login to your account </h3>
+					<div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none ml-5">
+						<h3 class="pt-4 text-3xl mt-4 p-5 font-bold">Create an Account </h3>
 						<form class="px-8 pt-6 pb-8 mb-4 bg-white rounded" onSubmit={submitHandler}>
             <div class="mb-4">
 								<label class="block mb-2 text-sm font-bold text-gray-700" for="username">
@@ -60,7 +60,7 @@ export const RegisterForm = () => {
 							
 							<div class="mb-6 text-center">
 								<button
-									class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+									class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-md hover:bg-blue-700 focus:outline-none focus:shadow-outline"
 									type="button"
 								>
                                     <Link to="/login">
