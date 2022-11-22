@@ -1,7 +1,7 @@
 import React from 'react'
-import { patientHistory } from './utils/PatientProgressDB'
+// import { patientHistory } from './utils/PatientProgressDB'
 
-export const PatientHistoryCard = () => {
+export const PatientHistoryCard = ({patientHistory}) => {
 	const random = () => (Math.floor(Math.random() * 255));
 
   return (

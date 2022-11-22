@@ -24,6 +24,6 @@ export const doctorNavLinks = [
     id: 5,
     title: "LogOut",
     icon: <LogoutIcon className="nav-icon" />,
-    path:"/login",
+    path:"/logout",
   },
 ];

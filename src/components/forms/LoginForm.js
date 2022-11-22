@@ -1,13 +1,60 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 
 export const LoginForm = () => {
 
-
-  
-	const [user,setUser]=useState()
+  const [cookies, setCookie, removeCookie] = useCookies([]); 
+const [email,setEmail] = useState()
+const [password,setPass] = useState() 
+	var user = "doctor"
 	const navigate=useNavigate()
+
+  const {REACT_APP_API_URL} = process.env;
+
+
+const loginHandler = () =>{
+if (email && password && user){
+  var url = REACT_APP_API_URL+"/"+user+"/login"
+  fetch(url,{
+    method:'POST',
+    body:JSON.stringify({
+      email:email,
+      password:password
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+   },
+  }) .then((res) => res.json())
+  .then((res) => {
+    
+   if(res.message==="SUCCESS"){
+    let expires = new Date()
+    expires.setTime(expires.getTime() + (6000 * 1000))
+    const token = res.result[0].token
+    //document.cookie = "token = "+token
+    setCookie("token",token)
+    setCookie("user",user)
+    alert("Login success!")
+    navigate("/login")
+    //navigate(user==="patient"? "/patienthome": "/addpatient")
+   }
+   //setPatients(res.result)
+  })
+  .catch((err) => {
+alert("Error occurred")
+  });
+}
+else{
+  alert("fill all the values!")
+}
+}
+
+
+
+
+
 
   const submitHandler = (event) => {
 	event.preventDefault();
@@ -29,9 +76,8 @@ export const LoginForm = () => {
               <h3 class="px-8 pt-4 text-2xl font-bold ">
                 Login to your account!
               </h3>
-              <form
+              <div
                 class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
-                onSubmit={submitHandler}
               >
                 <div className="mt-2 mb-3">
                   <ul class="grid grid-cols-3 gap-x-1 m-10 max-w-md mx-auto">
@@ -39,13 +85,15 @@ export const LoginForm = () => {
                       <input
                         class="sr-only peer"
                         type="radio"
-                        value="Doctor"
+                        value="doctor"
                         name="answer"
                         id="doctor"
                         checked
-						onChange={(e)=>{
+                        
+						onClick={(e)=>{
 							e.preventDefault();
-							setUser(e.target.value)
+              user = "doctor"
+              console.log(user)
 
 						}}
 					
@@ -62,13 +110,13 @@ export const LoginForm = () => {
                       <input
                         class="sr-only peer"
                         type="radio"
-                        value="Patient"
+                        value="patient"
                         name="answer"
                         id="patient"
-						onChange={(e)=>{
+						onClick={(e)=>{
 							e.preventDefault();
-							setUser(e.target.value)
-
+							user = "patient"
+              console.log(user)
 						}}
                       />
                       <label
@@ -85,13 +133,15 @@ export const LoginForm = () => {
                     class="block mb-2 text-sm font-bold text-gray-700"
                     for="username"
                   >
-                    Username
+                    Email
                   </label>
                   <input
                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
                     id="email"
                     type="email"
                     required
+                    value={email}
+                    onChange={(e)=>{setEmail(e.target.value)}}
                   />
                 </div>
                 <div class="mb-4">
@@ -106,6 +156,8 @@ export const LoginForm = () => {
                     id="password"
                     type="password"
                     required
+                    value={password}
+                    onChange={(e)=>{setPass(e.target.value)}}
                   />
                 </div>
 
@@ -113,6 +165,7 @@ export const LoginForm = () => {
                   <button
                     class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                     type="submit"
+                    onClick={loginHandler}
                   >
                     Login
                   </button>
@@ -123,7 +176,7 @@ export const LoginForm = () => {
                     <Link to="/register">Create an Account!</Link>
                   </div>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>

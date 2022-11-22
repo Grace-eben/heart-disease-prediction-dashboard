@@ -2,16 +2,19 @@ import React from 'react'
 import Header from '../../components/header/Header'
 import PatientNavBar from '../../components/navbar/PatientNavBar'
 import { BarChart } from '../../components/charts/BarChart'
-
+import { useCookies } from 'react-cookie';
 export const ViewProgress = () => {
+  
+  const [cookies, setCookie, removeCookie] = useCookies();
   return (
     <div className="App overflow-y-hidden ">
-    <Header/>
+        <Header logout={()=>{removeCookie("token")
+   removeCookie("user")}}/>
     <div className='w-full min-h-[90vh] grid grid-cols-12'>
    <PatientNavBar/>
     <div className='grid grid-cols-1 col-span-7 m-5 p-5 w-full'>
     <div class="mb-3 w-full ">
-<h6 className='mb-3 font-bold'>Patient ID:</h6>
+<h6 className='mb-3 font-bold'>Metric :</h6>
     <select class="form-select 
       block
       w-full

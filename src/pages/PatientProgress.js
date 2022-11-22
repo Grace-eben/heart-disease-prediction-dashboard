@@ -1,10 +1,10 @@
 import React,{useEffect,useState} from 'react'
-import NavBar from '../../components/navbar/NavBar'
-import Header from '../../components/header/Header'
-// import { Table } from '../components/tables/Table'
-import { BarChart } from '../../components/charts/BarChart'
-import { SelectionForms } from '../../components/forms/SelectionForms'
-import { LineChart } from '../../components/charts/LineChart'
+import NavBar from '../components/navbar/NavBar'
+import Header from '../components/header/Header'
+import { Table } from '../components/tables/Table'
+import { BarChart } from '../components/charts/BarChart'
+import { SelectionForms } from '../components/forms/SelectionForms'
+import { LineChart } from '../components/charts/LineChart'
 import { useCookies } from 'react-cookie';
 
 
@@ -24,7 +24,7 @@ const Y_LIST=["ca","target","trestbps","chol","thalach"]
 const {REACT_APP_API_URL} = process.env;
 
   useEffect(() => {
-    fetch(REACT_APP_API_URL+ '/doctor/get-patients',{
+    fetch(REACT_APP_API_URL + '/doctor/get-patients',{
                 method: 'POST',
              body: JSON.stringify({
                 token:token
@@ -73,7 +73,7 @@ useEffect(()=>{
  },([selectedY]))
 
     useEffect(() => {
-      fetch(REACT_APP_API_URL + '/doctor/all-records',{
+      fetch(REACT_APP_API_URL+'/doctor/all-records',{
                   method: 'POST',
                body: JSON.stringify({
                   token:token

@@ -7,8 +7,7 @@ export const Card = (props) => {
     <h5 class="mb-3 text-6xl font-bold tracking-tight text-white ">{props.score}</h5>
     <p class="font-normal text-white mb-3">{props.label}</p>
 </div>
-<span className="text-gray-500 font-semibold mt-2 mb-4 ml-5 text-sm">Last Updated : {props.lastUpdated}</span>
-          </div>
+    </div>
   
   )
 }
