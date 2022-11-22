@@ -76,6 +76,8 @@ const [nameObj,setNameObj] = useState({
   email:"email",
   id:-1
 })
+const {REACT_APP_API_URL} = process.env;
+
 
 const avgData ={
   "cp":0,
@@ -117,7 +119,7 @@ setPatientAvg(patientAvg)
 
 
 useEffect(()=>{
-  fetch('http://127.0.0.1:8000/patient/myinfo',{
+  fetch(REACT_APP_API_URL + '/patient/myinfo',{
     method: 'POST',
   body: JSON.stringify({
     token:token
@@ -138,7 +140,8 @@ useEffect(()=>{
 },([]))
 
 useEffect(()=>{
-  fetch('http://127.0.0.1:8000/patient/my-records',{
+
+  fetch(REACT_APP_API_URL + '/patient/my-records',{
   method: 'POST',
 body: JSON.stringify({
   token:token

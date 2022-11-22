@@ -20,12 +20,14 @@ const [percentage,setPercent] = useState(0);
   const token = cookies.token
   const user = cookies.user
   const [record,setRecord] = useState({})
+  const {REACT_APP_API_URL} = process.env;
 
 const [predictClicked,setPredictClick]= useState(false)
   function PredictHandler(){
     
     if (Object.keys(record).length == 14){
-       fetch('http://127.0.0.1:8000/patient/predict',{
+      var url = REACT_APP_API_URL + "/patient/predict"
+       fetch(url,{
         method:'POST',
         body:JSON.stringify(record),
         headers: {
@@ -51,7 +53,7 @@ const [predictClicked,setPredictClick]= useState(false)
 
 //console.log(cookies)
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/doctor/get-patients',{
+    fetch(REACT_APP_API_URL + '/doctor/get-patients',{
                 method: 'POST',
              body: JSON.stringify({
                 token:token

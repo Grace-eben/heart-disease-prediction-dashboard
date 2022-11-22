@@ -11,10 +11,12 @@ const [password,setPass] = useState()
 	var user = "doctor"
 	const navigate=useNavigate()
 
+  const {REACT_APP_API_URL} = process.env;
+
 
 const loginHandler = () =>{
 if (email && password && user){
-  var url = "http://127.0.0.1:8000/"+user+"/login"
+  var url = REACT_APP_API_URL+"/"+user+"/login"
   fetch(url,{
     method:'POST',
     body:JSON.stringify({
@@ -90,7 +92,6 @@ else{
                         
 						onClick={(e)=>{
 							e.preventDefault();
-							
               user = "doctor"
               console.log(user)
 

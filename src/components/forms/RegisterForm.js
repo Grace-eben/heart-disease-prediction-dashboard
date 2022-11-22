@@ -7,10 +7,12 @@ export const RegisterForm = () => {
 	const [email,setEmail] = useState()
 	const [password,setPassword] = useState()
 	let navigate = useNavigate();
+	const {REACT_APP_API_URL} = process.env;
+
     const submitHandler=()=>{
 
 if (name && email && password){
-	fetch("http://127.0.0.1:8000/patient/register",
+	fetch(REACT_APP_API_URL + "/patient/register",
 {
 	method:'POST',
 	body:JSON.stringify({

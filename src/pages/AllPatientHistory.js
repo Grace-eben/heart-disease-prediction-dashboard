@@ -12,9 +12,10 @@ export const AllPatientHistory = () => {
   const [allrecords,setAllrecords] = useState([])
   const [cookies, setCookie, removeCookie] = useCookies();
   const token = cookies.token
+  const {REACT_APP_API_URL} = process.env;
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/doctor/all-records',{
+    fetch(REACT_APP_API_URL+'/doctor/all-records',{
                 method: 'POST',
              body: JSON.stringify({
                 token:token

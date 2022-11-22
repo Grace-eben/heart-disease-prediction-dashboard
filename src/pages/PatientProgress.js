@@ -21,9 +21,10 @@ export const PatientProgress = () => {
   const [dataY,setDataY] = useState([])
   const X_LIST=["slope","trestbps","chol","thalach","target"]
 const Y_LIST=["ca","target","trestbps","chol","thalach"]
+const {REACT_APP_API_URL} = process.env;
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/doctor/get-patients',{
+    fetch(REACT_APP_API_URL + '/doctor/get-patients',{
                 method: 'POST',
              body: JSON.stringify({
                 token:token
@@ -72,7 +73,7 @@ useEffect(()=>{
  },([selectedY]))
 
     useEffect(() => {
-      fetch('http://127.0.0.1:8000/doctor/all-records',{
+      fetch(REACT_APP_API_URL+'/doctor/all-records',{
                   method: 'POST',
                body: JSON.stringify({
                   token:token
