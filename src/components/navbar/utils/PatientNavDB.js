@@ -17,13 +17,5 @@ export const patientNavLinks = [
     func:function(){}
   },
   
-  {
-    id: 5,
-    title: "LogOut",
-    icon: <LogoutIcon className="nav-icon" />,
-    path:"/logout",
-    func:function(){
-      
-    }
-  },
+
 ];
