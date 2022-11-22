@@ -33,9 +33,7 @@ console.log(token && user==="doctor")
 
     <Route exact path="/patienthome" element={(token)? ((user==="patient") ? <PatientHome/> :<Navigate to="/login"/>):  <Login/>}/>
     <Route exact path="/viewprogress" element ={(token)? ((user==="patient") ? <ViewProgress/> :<Navigate to="/login"/>):  <Login/>}/>
-    <Route exact path="/logout" element={
-   (removeCookie("token") || removeCookie("user")) ?
-    <Navigate to="/login"/> : <Navigate to="/login"/>}/>
+    {/* <Route exact path="/logout" element={ <Navigate to="/login"/>}/> */}
 </Routes>
     
    

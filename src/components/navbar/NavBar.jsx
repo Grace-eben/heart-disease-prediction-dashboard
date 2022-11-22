@@ -3,8 +3,10 @@ import { doctorNavLinks } from "./utils/NavDB";
 import { useRecoilState } from "recoil";
 import { activeNavItemState } from "../../atoms/ActiveNavBarAtom";
 import { Link } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 
 function NavBar() {
+  const [cookies, setCookie, removeCookie] = useCookies({});
   return (
     <nav className="col-span-2 border-r border-gray-200 min-h-[90vh] w-[80px] xl:w-[250px] pt-8 px-1 flex flex-col items-start justify-between">
       <div className="space-y-8 w-full ">
@@ -22,9 +24,14 @@ function NavBar() {
 }
 function NavItem({ link }) {
   const [activeNav, setActiveNav] = useRecoilState(activeNavItemState);
+  
   return (
     <div
-      onClick={() => setActiveNav(link.id)}
+      onClick={() => {
+
+        setActiveNav(link.id)
+        
+      }}
       key={link.id}
       className={`w-full flex items-center justify-start space-x-8 px-5 cursor-pointer
        group hover:border-gray-900 border-l-4 border-transparent ${

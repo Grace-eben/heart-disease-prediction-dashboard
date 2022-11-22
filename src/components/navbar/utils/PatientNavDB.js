@@ -7,12 +7,14 @@ export const patientNavLinks = [
     title: "Home",
     icon: <TemplateIcon className="nav-icon" />,
     path:"/patienthome",
+    func:function(){}
   },
   {
     id: 2,
     title: "View Progress",
     icon: <ClipboardIcon className="nav-icon" />,
     path:"/viewprogress",
+    func:function(){}
   },
   
   {
@@ -20,5 +22,8 @@ export const patientNavLinks = [
     title: "LogOut",
     icon: <LogoutIcon className="nav-icon" />,
     path:"/logout",
+    func:function(){
+      
+    }
   },
 ];

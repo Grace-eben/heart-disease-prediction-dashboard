@@ -95,7 +95,8 @@ useEffect(()=>{
 
   return (
     <div className="App overflow-y-hidden ">
-     <Header/>
+        <Header logout={()=>{removeCookie("token")
+   removeCookie("user")}}/>
      <div className='w-full min-h-[90vh] grid grid-cols-12'>
      <NavBar/>
      <div className='grid grid-cols-1 col-span-7 m-5 p-5 w-full'>

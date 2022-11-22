@@ -7,7 +7,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
 
 export const AddPatientForm = () => {
-const percentage = 90;
+const [percentage,setPercent] = useState(0);
   const [open, setOpen] = useState(false);
 
   const onOpenModal = () => setOpen(true);
@@ -35,6 +35,8 @@ const [predictClicked,setPredictClick]= useState(false)
       .then((res) => {
        console.log(res)
        setPatients(res.result)
+       setPredictClick(true)
+       setPercent(res.result[0].prediction)
       })
       .catch((err) => {
    console.log(err)
@@ -42,7 +44,7 @@ const [predictClicked,setPredictClick]= useState(false)
       });
     }
     else{
-      console.log('fill all values!')
+      alert('fill all values!')
     }
      
   }
@@ -319,7 +321,7 @@ const [predictClicked,setPredictClick]= useState(false)
 
 <div className="w-full md:w-1/4 px-5 mt-8 content-center">
 
-<CircularProgressbar
+{ predictClicked && <CircularProgressbar
   value={percentage}
   text={`${percentage}%`}
   strokeWidth={5}
@@ -341,7 +343,7 @@ const [predictClicked,setPredictClick]= useState(false)
     backgroundColor: '#3e98c7',
   })}
 
-  />
+  />}
 </div>
 
 </div>

@@ -1,14 +1,58 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
 
 export const LoginForm = () => {
 
-
+  const [cookies, setCookie, removeCookie] = useCookies([]); 
 const [email,setEmail] = useState()
 const [password,setPass] = useState() 
-	const [user,setUser]=useState("doctor")
+	var user = "doctor"
 	const navigate=useNavigate()
+
+
+const loginHandler = () =>{
+if (email && password && user){
+  var url = "http://127.0.0.1:8000/"+user+"/login"
+  fetch(url,{
+    method:'POST',
+    body:JSON.stringify({
+      email:email,
+      password:password
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+   },
+  }) .then((res) => res.json())
+  .then((res) => {
+    
+   if(res.message==="SUCCESS"){
+    let expires = new Date()
+    expires.setTime(expires.getTime() + (6000 * 1000))
+    const token = res.result[0].token
+    //document.cookie = "token = "+token
+    setCookie("token",token)
+    setCookie("user",user)
+    alert("Login success!")
+    navigate("/login")
+    //navigate(user==="patient"? "/patienthome": "/addpatient")
+   }
+   //setPatients(res.result)
+  })
+  .catch((err) => {
+alert("Error occurred")
+  });
+}
+else{
+  alert("fill all the values!")
+}
+}
+
+
+
+
+
 
   const submitHandler = (event) => {
 	event.preventDefault();
@@ -32,7 +76,6 @@ const [password,setPass] = useState()
               </h3>
               <div
                 class="px-8 pt-6 pb-8 mb-4 bg-white rounded"
-                onSubmit={submitHandler}
               >
                 <div className="mt-2 mb-3">
                   <ul class="grid grid-cols-3 gap-x-1 m-10 max-w-md mx-auto">
@@ -40,13 +83,16 @@ const [password,setPass] = useState()
                       <input
                         class="sr-only peer"
                         type="radio"
-                        value="Doctor"
+                        value="doctor"
                         name="answer"
                         id="doctor"
                         checked
+                        
 						onClick={(e)=>{
-							//e.preventDefault();
-							setUser("doctor")
+							e.preventDefault();
+							
+              user = "doctor"
+              console.log(user)
 
 						}}
 					
@@ -63,13 +109,13 @@ const [password,setPass] = useState()
                       <input
                         class="sr-only peer"
                         type="radio"
-                        value="Patient"
+                        value="patient"
                         name="answer"
                         id="patient"
 						onClick={(e)=>{
-							//e.preventDefault();
-							setUser("patient")
-
+							e.preventDefault();
+							user = "patient"
+              console.log(user)
 						}}
                       />
                       <label
@@ -118,7 +164,7 @@ const [password,setPass] = useState()
                   <button
                     class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-lg hover:bg-blue-700 focus:outline-none focus:shadow-outline"
                     type="submit"
-                    onClick={()=>{console.log(user,email,password)}}
+                    onClick={loginHandler}
                   >
                     Login
                   </button>

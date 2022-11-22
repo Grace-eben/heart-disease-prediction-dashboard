@@ -37,7 +37,8 @@ export const AllPatientHistory = () => {
 
   return (
     <div className="App overflow-y-hidden ">
-     <Header/>
+        <Header logout={()=>{removeCookie("token")
+   removeCookie("user")}}/>
      <div className='w-full min-h-[90vh] grid grid-cols-12'>
      <NavBar/>
      <div className='grid grid-cols- col-span-10 w-full'>
