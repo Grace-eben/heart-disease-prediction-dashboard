@@ -28,7 +28,7 @@ if (name && email && password){
 	console.log(res)
 	if(res.message === 'success'){
 		alert("Registration success")
-		navigate("/login");
+		window.location.replace("/login")
 	}
 	else{
 		alert("registration failed")
