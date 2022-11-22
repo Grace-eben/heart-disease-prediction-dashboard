@@ -20,10 +20,4 @@ export const doctorNavLinks = [
     path:"/patientprogress",
   },
 
-  {
-    id: 5,
-    title: "LogOut",
-    icon: <LogoutIcon className="nav-icon" />,
-    path:"/logout",
-  },
 ];

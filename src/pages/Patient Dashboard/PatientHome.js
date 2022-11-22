@@ -182,7 +182,8 @@ setLastPred(patientRecords[patientRecords.length-1].target)
   return (
     <div className="App overflow-y-hidden ">
     <Header logout={()=>{removeCookie("token")
-   removeCookie("user")}}/>
+   removeCookie("user")
+   window.location.replace("/login")}}/>
     <div className="w-full min-h-[90vh] grid grid-cols-12">
       <PatientNavBar />
       <div className="grid grid-cols- col-span-10 m-5 p-2">
